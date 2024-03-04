@@ -10,7 +10,7 @@ class Solution {
                 if (isCycle_DFS(i, v, adj, visited)) {
                     return true;
                 }
-            } else if (i != parent) {
+            } else if (i != parent) { // we are at a node which is visited but not parent so its cycle
                 return true;
             }
         }
