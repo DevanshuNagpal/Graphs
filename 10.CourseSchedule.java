@@ -37,5 +37,60 @@ class Solution {
         if (result.size() == n) return true;
         else return false;
     }
+
+
+
     
 }
+
+
+/*
+class Solution {
+    public boolean canFinish(int numCourses, int[][] prerequisites) {
+        //create an adjacency list to represent graph 
+        List<List<Integer>> adj = new ArrayList<>();
+        for(int i =0;i<numCourses;i++){
+            adj.add(new ArrayList<>());
+
+        }
+        //fill the adh list with prereq
+        for(int[] u : prerequisites){
+            adj.get(u[1]).add(u[0]);
+        }
+        boolean[] visited = new boolean[numCourses];
+        boolean[] stack = new boolean[numCourses];
+
+        //DFS on each forest
+        for(int i =0;i<numCourses;i++){
+            if(!visited[i] && hasCycle(i,adj,visited,stack)){
+                return false;
+            }
+        }
+        return true;
+
+    }
+    private boolean hasCycle(int v, List<List<Integer>> adj,boolean[] visited,boolean[] stack){
+        //if node in stack cycle detected
+        if(stack[v]){
+            return true;
+        }
+        //if node is already visited ,no cycle
+        if(visited[v]){
+            return false;
+        }
+        
+        visited[v] = true;
+        stack[v] = true;
+
+        //check neighbours for cycle
+        for(int neighbour : adj.get(v)){
+            if(hasCycle(neighbour,adj,visited,stack)){
+                return true;
+            }
+        }
+        stack[v] = false;
+        return false;
+    }
+}
+
+*/
